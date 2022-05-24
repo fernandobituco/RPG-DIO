@@ -26,7 +26,7 @@ namespace RPG_DIO.src.Classes
 
         public override string ToString()
         {
-            return ($@"
+            return ($@" Character status
                 Name: {this.Name}
                 Level: {this.Level}
                 HP: {this.HpCurrent}/{this.HpMax}

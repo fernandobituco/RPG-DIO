@@ -45,7 +45,7 @@ namespace RPG_DIO.src.Classes
             hp = Convert.ToInt32(ReadLine()) * 5 + 100;
 
             WriteLine("Roll the d20 to find out your MP");
-            hp = Convert.ToInt32(ReadLine()) * 2 + 20;
+            mp = Convert.ToInt32(ReadLine()) * 2 + 20;
         }
         private static void WizardHpMp()
         {
@@ -53,7 +53,7 @@ namespace RPG_DIO.src.Classes
             hp = Convert.ToInt32(ReadLine()) * 3 + 80;
 
             WriteLine("Roll the d20 to find out your MP");
-            hp = Convert.ToInt32(ReadLine()) * 5 + 100;
+            mp = Convert.ToInt32(ReadLine()) * 5 + 100;
         }
     }
 }
