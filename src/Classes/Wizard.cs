@@ -8,9 +8,11 @@ namespace RPG_DIO.src.Classes
             this.Element = Element;
         }
 
-        public override string Attack(Character enemy)
+        public override bool Attack(Character enemy)
         {
-            return ($"{this.Name} attacked {enemy.Name} using a {this.Element} spell");
+            int damageDealt = this.damage(this, enemy);
+            Console.WriteLine($"{this.Name} attacked {enemy.Name} using a {this.Element} spell dealing {damageDealt} damage");
+            return checkLife(enemy);
         }
     }
 }

@@ -9,9 +9,11 @@ namespace RPG_DIO.src.Classes
             this.Weapon = Weapon;
         }
 
-        public override string Attack(Character enemy)
+        public override bool Attack(Character enemy)
         {
-            return ($"{this.Name} attacked {enemy.Name} with his {this.Weapon}");
+            int damageDealt = this.damage(this, enemy);
+            Console.WriteLine ($"{this.Name} attacked {enemy.Name} with his {this.Weapon} dealing {damageDealt} damage");
+            return checkLife(enemy);       
         }
     }
 }

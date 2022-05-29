@@ -8,10 +8,13 @@ namespace RPG_DIO.src.Classes
         public int HpCurrent { get; set; }
         public int MpMax { get; set; }
         public int MpCurrent { get; set; }
+        public bool IsAlive { get; set; }
+        public int Damage = 10;
 
-        public virtual string Attack(Character enemy)
+        public virtual bool Attack(Character enemy)
         {
-            return ($"{this.Name} attacked {enemy.Name}");
+            Console.WriteLine ($"{this.Name} attacked {enemy.Name}");
+            return checkLife(enemy);
         }
 
         public Character(string Name, int Level, int Hp, int Mp)
@@ -22,6 +25,7 @@ namespace RPG_DIO.src.Classes
             this.HpCurrent = Hp;
             this.MpMax = Mp;
             this.MpCurrent = Mp;
+            this.IsAlive = true;
         }
 
         public override string ToString()
@@ -32,6 +36,29 @@ namespace RPG_DIO.src.Classes
                 HP: {this.HpCurrent}/{this.HpMax}
                 MP: {this.MpCurrent}/{this.MpMax}
             ");
+        }
+
+        public int damage(Character attacker, Character defender)
+        {
+            Random rnd = new Random();
+            int damageDealt = Damage * attacker.Level * rnd.Next(1,6) / 10;
+            defender.HpCurrent -= damageDealt;
+            return damageDealt;
+        }
+
+        public static bool checkLife(Character defender)
+        {
+            if (defender.HpCurrent <= 0)
+            {
+                defender.IsAlive = false;
+                Console.WriteLine($"{defender.Name} DIED");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine($"{defender.Name} has {defender.HpCurrent} HP");
+                return true;
+            }
         }
     }
 }

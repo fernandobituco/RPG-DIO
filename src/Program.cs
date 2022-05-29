@@ -16,8 +16,18 @@ namespace RPG_DIO.src
             Character playerTwo = Factory.CreateCharacter();
             WriteLine(playerTwo.ToString());
             
-            WriteLine(playerOne.Attack(playerTwo));
-            WriteLine(playerTwo.Attack(playerOne));
+            ReadLine();
+            Random rnd = new Random();
+            while(true)
+            {
+                if (rnd.Next(1,3) == 1)
+                    if(!playerOne.Attack(playerTwo))
+                        break;
+                else
+                    if(!playerTwo.Attack(playerOne))
+                        break;
+            }
+            ReadLine();
         }
     }
 }
