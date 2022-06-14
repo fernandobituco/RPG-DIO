@@ -27,13 +27,13 @@ namespace RPG_DIO.src.Classes
             if (type == "k")
             {
                 KnightHpMp();
-                Knight knight = new Knight(name, 1, hp, mp, "sword");
+                Knight knight = new Knight(name, 1, hp, mp, new Weapon("beginner's sword", "physical", 50), 20);
                 return knight;
             }
             else
             {
                 WizardHpMp();
-                Wizard wizard = new Wizard(name, 1, hp, mp, "fire");
+                Wizard wizard = new Wizard(name, 1, hp, mp, new Weapon("beginner's wand", "magic", 50), "fire");
                 return wizard;
             }
 

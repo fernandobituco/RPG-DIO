@@ -3,7 +3,7 @@ namespace RPG_DIO.src.Classes
     public class Wizard : Character
     {    
         public string Element { get; set; }
-        public Wizard(string Name, int Level, int Hp, int Mp, string Element) : base(Name, Level, Hp, Mp)
+        public Wizard(string Name, int Level, int Hp, int Mp, Weapon weapon, string Element) : base(Name, Level, Hp, Mp, weapon)
         {
             this.Element = Element;
         }

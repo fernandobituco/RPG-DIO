@@ -2,7 +2,7 @@ namespace RPG_DIO.src.Classes
 {
     public abstract class Character
     {
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public int Level { get; set; }
         public int HpMax { get; set; }
         public int HpCurrent { get; set; }
@@ -10,6 +10,7 @@ namespace RPG_DIO.src.Classes
         public int MpCurrent { get; set; }
         public bool IsAlive { get; set; }
         public int Damage = 10;
+        public Weapon weapon { get; set; }
 
         public virtual bool Attack(Character enemy)
         {
@@ -17,7 +18,7 @@ namespace RPG_DIO.src.Classes
             return checkLife(enemy);
         }
 
-        public Character(string Name, int Level, int Hp, int Mp)
+        public Character(string Name, int Level, int Hp, int Mp, Weapon weapon)
         {
             this.Name = Name;
             this.Level = Level;
@@ -26,6 +27,7 @@ namespace RPG_DIO.src.Classes
             this.MpMax = Mp;
             this.MpCurrent = Mp;
             this.IsAlive = true;
+            this.weapon = weapon;
         }
 
         public override string ToString()
