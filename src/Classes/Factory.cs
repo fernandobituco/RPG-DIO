@@ -4,15 +4,15 @@ namespace RPG_DIO.src.Classes
 {
     static public class Factory
     {
-        private static string name;
-        private static string type;
+        private static string? name;
+        private static string? type;
         private static int hp;
         private static int mp;
 
         public static Character CreateCharacter()
         {
             WriteLine("Type your character's name");
-            name = ReadLine();
+            name = getName();
             
             while (true)
             {
@@ -37,6 +37,19 @@ namespace RPG_DIO.src.Classes
                 return wizard;
             }
 
+        }
+
+        private static string getName()
+        {
+            while(true)
+            {
+                name = ReadLine();
+                if (name == null)
+                    WriteLine("Please type a name");
+                else
+                    break;
+            }
+            return name;
         }
 
         private static void KnightHpMp()
